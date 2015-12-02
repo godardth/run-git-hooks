@@ -22,7 +22,7 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/', function () use ($app) {
 	
-	$date = scandir('./shell_scripts');
+	$data = scandir('./shell_scripts');
 	
 	$scripts = [
 		[
