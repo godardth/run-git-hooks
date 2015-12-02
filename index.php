@@ -36,9 +36,15 @@ $app->get('/', function () use ($app) {
     ]);
 });
 $app->post('/run', function () use ($app) {
+	
 	$filename = $app->request->post('filename');
+	exec('./shell_scripts/'.$filename.'  2>&1', $output);
+	
 	$app->response->headers->set('Content-Type', 'application/json');
-	echo json_encode($filename);
+	echo json_encode([
+		'filename' => $filename,
+		'output' => $output
+	]);
 });
 
 $app->run();
