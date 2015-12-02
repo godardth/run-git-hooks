@@ -8,7 +8,7 @@ $(document).ready(function(){
 	    function(data, status){
 	        $('#page-title').html(data.filename);
 	        
-	        var output
+	        var output = '';
 	        $.each(data.output, function(linenumber, line) {
 	        	output += line
 	        })
