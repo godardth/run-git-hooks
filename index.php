@@ -26,6 +26,9 @@ $app->get('/', function () use ($app) {
 		[
 			'name' => 'Sample script',
 		],
+		[
+			'name' => 'Second script',
+		],
 	];
 	
     $app->render('index.html', ['scripts' => $scripts]);
