@@ -22,16 +22,15 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/', function () use ($app) {
 	
-	$files = scandir('./shell_scripts');
 	
-	$scripts = [
-		[
-			'name' => 'Sample script',
-		],
-		[
-			'name' => 'Second script',
-		],
-	];
+	$files = array_diff(scandir('./shell_scripts'), ['..', '.']);
+	$scripts = [];
+	foreach($files as $file)
+		array_push($scripts, [
+			'name' => substr($file,0,$file.length-3),
+			'filename' => $file
+		]);
+	
 	
     $app->render('index.html', [
     	'scripts' => $scripts,
