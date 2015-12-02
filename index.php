@@ -22,7 +22,9 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/hello/:name', function ($name) use ($app) {
     $app->render('test.html', ['name' => $name]);
-    //echo "Hello, $name";
+});
+$app->get('/layout', function () use ($app) {
+    $app->render('layout.html');
 });
 
 $app->run();
