@@ -22,7 +22,7 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/', function () use ($app) {
 	
-	$data = scandir('./shell_scripts');
+	$files = scandir('./shell_scripts');
 	
 	$scripts = [
 		[
@@ -35,7 +35,7 @@ $app->get('/', function () use ($app) {
 	
     $app->render('index.html', [
     	'scripts' => $scripts,
-    	'data' => $data
+    	'files' => $files
     ]);
 });
 $app->get('/hello/:name', function ($name) use ($app) {

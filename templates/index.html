@@ -67,7 +67,9 @@
         </nav>
 
         <div id="page-wrapper">
-        	{{data}}
+        	{% for file in files %}
+                <a href="index.html"><i class="fa fa-file-code-o fa-fw"></i> {{file}}</a>
+            {% endfor %}
         </div>
     </div>
 
