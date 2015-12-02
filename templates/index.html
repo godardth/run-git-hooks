@@ -56,10 +56,11 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        {% for script in scripts %}
                         <li>
-                            <a href="index.html"><i class="fa fa-file-code-o fa-fw"></i> Script Name</a>
+                            <a href="index.html"><i class="fa fa-file-code-o fa-fw"></i> script.name</a>
                         </li>
-                        
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

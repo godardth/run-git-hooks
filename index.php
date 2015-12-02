@@ -23,7 +23,9 @@ $view->parserOptions = [
 $app->get('/', function () use ($app) {
 	
 	$scripts = [
-		
+		[
+			'name' => 'Sample script',
+		],
 	];
 	
     $app->render('index.html', ['scripts' => $scripts]);
