@@ -22,7 +22,6 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/', function () use ($app) {
 	
-	
 	$files = array_diff(scandir('./shell_scripts'), ['..', '.']);
 	$scripts = [];
 	foreach($files as $file)
@@ -31,11 +30,15 @@ $app->get('/', function () use ($app) {
 			'filename' => $file
 		]);
 	
-	
     $app->render('index.html', [
     	'scripts' => $scripts,
     	'files' => $files
     ]);
+});
+$app->post('/run', function () use ($app) {
+	$filename = $app->request->post('filename');
+	$app->response->headers->set('Content-Type', 'application/json');
+	return json_encode($filename);
 });
 $app->get('/hello/:name', function ($name) use ($app) {
     $app->render('test.html', ['name' => $name]);
