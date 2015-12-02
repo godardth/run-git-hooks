@@ -58,7 +58,7 @@
                     <ul class="nav" id="side-menu">
                         {% for script in scripts %}
                         <li>
-                            <a href="/run/{{script.filename}}"><i class="fa fa-file-code-o fa-fw"></i> {{script.name}}</a>
+                            <a href="#" class="run-script" script="{{script.filename}}"><i class="fa fa-file-code-o fa-fw"></i> {{script.name}}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -83,6 +83,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="./assets/js/sb-admin-2.js"></script>
+    <script src="./assets/js/runscript.js"></script>
 
 </body>
 
