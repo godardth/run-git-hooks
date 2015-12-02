@@ -38,10 +38,7 @@ $app->get('/', function () use ($app) {
 $app->post('/run', function () use ($app) {
 	$filename = $app->request->post('filename');
 	$app->response->headers->set('Content-Type', 'application/json');
-	return json_encode($filename);
-});
-$app->get('/hello/:name', function ($name) use ($app) {
-    $app->render('test.html', ['name' => $name]);
+	echo json_encode($filename);
 });
 
 $app->run();
