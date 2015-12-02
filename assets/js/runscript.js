@@ -9,8 +9,8 @@ $(document).ready(function(){
 	        $('#page-title').html(data.filename);
 	        
 	        var output
-	        $.each(data.output, function($line) {
-	        	output += $line
+	        $.each(data.output, function(linenumber, line) {
+	        	output += line
 	        })
 	        
 	        $('#console-output').html(output);
