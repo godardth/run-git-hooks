@@ -9,7 +9,7 @@ $(document).ready(function(){
 	        console.log(data);
 	        $('#page-title').html(data.filename);
 	        $('#console-output').html(data.console);
-	    });
+	    }, 'json');
 		
 	});
 		
