@@ -27,7 +27,7 @@ $app->get('/', function () use ($app) {
 	$scripts = [];
 	foreach($files as $file)
 		array_push($scripts, [
-			'name' => substr($file,0,$file.length-3),
+			'name' => substr($file,0,strlen($file)-3),
 			'filename' => $file
 		]);
 	
