@@ -35,6 +35,9 @@ $app->get('/', function () use ($app) {
     	'files' => $files
     ]);
 });
+$app->post('/run/:filename', function ($filename) {
+	exec('./shell_scripts/'.$filename.'.sh 2>&1', $output);
+});
 $app->post('/run', function () use ($app) {
 	
 	$filename = $app->request->post('filename');

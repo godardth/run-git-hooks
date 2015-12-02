@@ -1,7 +1,7 @@
 <?php
 
-/* layout.html */
-class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a84b50 extends Twig_Template
+/* index.html */
+class __TwigTemplate_457888d3c4c0e0717e27bcf0387574709c3820d0a68200b6cc52dc2712610508 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -27,16 +27,13 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
     <meta name=\"description\" content=\"\">
     <meta name=\"author\" content=\"\">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Run Git Hooks</title>
 
     <!-- Bootstrap Core CSS -->
     <link href=\"./bower_components/bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
 
     <!-- MetisMenu CSS -->
     <link href=\"./bower_components/metisMenu/dist/metisMenu.min.css\" rel=\"stylesheet\">
-
-    <!-- Timeline CSS -->
-    <link href=\"./dist/css/timeline.css\" rel=\"stylesheet\">
 
     <!-- Custom CSS -->
     <link href=\"./assets/css/sb-admin-2.css\" rel=\"stylesheet\">
@@ -74,17 +71,63 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
             <div class=\"navbar-default sidebar\" role=\"navigation\">
                 <div class=\"sidebar-nav navbar-collapse\">
                     <ul class=\"nav\" id=\"side-menu\">
-                        <li>
-                            <a href=\"index.html\"><i class=\"fa fa-file-code-o fa-fw\"></i> Script Name</a>
+                        ";
+        // line 56
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["scripts"]) ? $context["scripts"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["script"]) {
+            // line 57
+            echo "                        <li>
+                            <a href=\"#\" class=\"run-script\" script=\"";
+            // line 58
+            echo twig_escape_filter($this->env, $this->getAttribute($context["script"], "filename", array()), "html", null, true);
+            echo "\"><i class=\"fa fa-file-code-o fa-fw\"></i> ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["script"], "name", array()), "html", null, true);
+            echo "</a>
                         </li>
-                        
-                    </ul>
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['script'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 61
+        echo "                    </ul>
                 </div>
             </div>
         </nav>
 
         <div id=\"page-wrapper\">
         \t
+        \t<div class=\"row\">
+                <div class=\"col-lg-12\">
+                    <h1 id=\"page-title\" class=\"page-header\">Dashboard</h1>
+                </div>
+            </div>
+            
+            <div class=\"row\">
+                <div class=\"col-lg-8\">
+                    <div class=\"panel panel-default\">
+                        <div class=\"panel-heading\">
+                            <i class=\"fa fa-terminal fa-fw\"></i> Console Output
+                        </div>
+                        <div class=\"panel-body\">
+                            <p id=\"console-output\"></p>
+                        </div>
+                    </div>
+                </div>   
+                
+        \t\t<div class=\"col-lg-4\">
+                    <div class=\"panel panel-default\">
+                        <div class=\"panel-heading\">
+                            <i class=\"fa fa-cog fa-fw\"></i> Options
+                        </div>
+                        <div class=\"panel-body\">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 
@@ -99,6 +142,7 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 
     <!-- Custom Theme JavaScript -->
     <script src=\"./assets/js/sb-admin-2.js\"></script>
+    <script src=\"./assets/js/runscript.js\"></script>
 
 </body>
 
@@ -107,12 +151,17 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 
     public function getTemplateName()
     {
-        return "layout.html";
+        return "index.html";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,);
+        return array (  94 => 61,  83 => 58,  80 => 57,  76 => 56,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -126,16 +175,13 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 /*     <meta name="description" content="">*/
 /*     <meta name="author" content="">*/
 /* */
-/*     <title>SB Admin 2 - Bootstrap Admin Theme</title>*/
+/*     <title>Run Git Hooks</title>*/
 /* */
 /*     <!-- Bootstrap Core CSS -->*/
 /*     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">*/
 /* */
 /*     <!-- MetisMenu CSS -->*/
 /*     <link href="./bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">*/
-/* */
-/*     <!-- Timeline CSS -->*/
-/*     <link href="./dist/css/timeline.css" rel="stylesheet">*/
 /* */
 /*     <!-- Custom CSS -->*/
 /*     <link href="./assets/css/sb-admin-2.css" rel="stylesheet">*/
@@ -173,10 +219,11 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 /*             <div class="navbar-default sidebar" role="navigation">*/
 /*                 <div class="sidebar-nav navbar-collapse">*/
 /*                     <ul class="nav" id="side-menu">*/
+/*                         {% for script in scripts %}*/
 /*                         <li>*/
-/*                             <a href="index.html"><i class="fa fa-file-code-o fa-fw"></i> Script Name</a>*/
+/*                             <a href="#" class="run-script" script="{{script.filename}}"><i class="fa fa-file-code-o fa-fw"></i> {{script.name}}</a>*/
 /*                         </li>*/
-/*                         */
+/*                         {% endfor %}*/
 /*                     </ul>*/
 /*                 </div>*/
 /*             </div>*/
@@ -184,6 +231,36 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 /* */
 /*         <div id="page-wrapper">*/
 /*         	*/
+/*         	<div class="row">*/
+/*                 <div class="col-lg-12">*/
+/*                     <h1 id="page-title" class="page-header">Dashboard</h1>*/
+/*                 </div>*/
+/*             </div>*/
+/*             */
+/*             <div class="row">*/
+/*                 <div class="col-lg-8">*/
+/*                     <div class="panel panel-default">*/
+/*                         <div class="panel-heading">*/
+/*                             <i class="fa fa-terminal fa-fw"></i> Console Output*/
+/*                         </div>*/
+/*                         <div class="panel-body">*/
+/*                             <p id="console-output"></p>*/
+/*                         </div>*/
+/*                     </div>*/
+/*                 </div>   */
+/*                 */
+/*         		<div class="col-lg-4">*/
+/*                     <div class="panel panel-default">*/
+/*                         <div class="panel-heading">*/
+/*                             <i class="fa fa-cog fa-fw"></i> Options*/
+/*                         </div>*/
+/*                         <div class="panel-body">*/
+/*                             */
+/*                         </div>*/
+/*                     </div>*/
+/*                 </div>*/
+/*                 */
+/*             </div>*/
 /*         </div>*/
 /*     </div>*/
 /* */
@@ -198,6 +275,7 @@ class __TwigTemplate_8f5c47e15b12e49a05bb8a008498a835e4a0c36f3117cd685c6f7942e5a
 /* */
 /*     <!-- Custom Theme JavaScript -->*/
 /*     <script src="./assets/js/sb-admin-2.js"></script>*/
+/*     <script src="./assets/js/runscript.js"></script>*/
 /* */
 /* </body>*/
 /* */

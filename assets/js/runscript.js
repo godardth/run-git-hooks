@@ -10,7 +10,7 @@ $(document).ready(function(){
 	        
 	        var output = '';
 	        $.each(data.output, function(linenumber, line) {
-	        	output += line
+	        	output += line + '<br>'
 	        })
 	        
 	        $('#console-output').html(output);
