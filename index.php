@@ -22,6 +22,8 @@ $view->parserOptions = [
 // Routes Definition
 $app->get('/', function () use ($app) {
 	
+	$date = scandir('./shell_scripts');
+	
 	$scripts = [
 		[
 			'name' => 'Sample script',
@@ -31,7 +33,10 @@ $app->get('/', function () use ($app) {
 		],
 	];
 	
-    $app->render('index.html', ['scripts' => $scripts]);
+    $app->render('index.html', [
+    	'scripts' => $scripts,
+    	'data' => $data
+    ]);
 });
 $app->get('/hello/:name', function ($name) use ($app) {
     $app->render('test.html', ['name' => $name]);
