@@ -6,9 +6,14 @@ $(document).ready(function(){
 	        filename: $(this).attr("script")
 	    },
 	    function(data, status){
-	        console.log(data);
 	        $('#page-title').html(data.filename);
-	        $('#console-output').html(data.console);
+	        
+	        var output
+	        $.each(data.output, function($line) {
+	        	output += $line
+	        })
+	        
+	        $('#console-output').html(output);
 	    }, 'json');
 		
 	});
