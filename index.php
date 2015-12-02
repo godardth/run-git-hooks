@@ -20,11 +20,16 @@ $view->parserOptions = [
 ];
 
 // Routes Definition
+$app->get('/', function () use ($app) {
+	
+	$scripts = [
+		
+	];
+	
+    $app->render('index.html', ['scripts' => $scripts]);
+});
 $app->get('/hello/:name', function ($name) use ($app) {
     $app->render('test.html', ['name' => $name]);
-});
-$app->get('/layout', function () use ($app) {
-    $app->render('layout.html');
 });
 
 $app->run();
